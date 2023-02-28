@@ -1,0 +1,220 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Tilt+Neon&display=swap");
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/****************************************
+  ****************************************/
+
+* {
+    font-family: "Tilt Neon", "IBM Plex Sans KR", sans-serif !important;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background-color: #3aaaff;
+}
+
+a {
+    text-decoration: none;
+}
+
+header > a {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    width: 300px;
+}
+
+header > nav > ul {
+    position: absolute;
+    top: 0px;
+    left: 400px;
+    height: 100%;
+    width: 180px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+header > nav > ul > li {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bolder;
+    color: white;
+}
+
+header > nav > ul > li:hover {
+    color: #495579;
+}
+
+header > div {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    width: 190px;
+}
+
+header > div > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    font-size: 14px;
+    font-weight: bolder;
+    color: white;
+    background-color: #967e76;
+    border-radius: 5px;
+    width: 60px;
+    height: 50%;
+}
+
+header > div > a:hover {
+    box-shadow: 1px 1px 1px 1px black inset;
+}
+
+.logo {
+    width: 60px;
+    height: 100%;
+}
+
+h1 {
+    font-size: 30px;
+}
