@@ -4,46 +4,33 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Main</title>
+        <title>ToonVerse</title>
+
         <link rel="stylesheet" href="css/main.css" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     </head>
     <body>
-        <!-- <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul> -->
         <header>
             <a href="/">
                 <img src="image/logo.jpg" alt="mainLogo" class="logo" />
                 <h1>ToonVerse</h1>
             </a>
             <nav>
-                <ul>
-                    <li id="webtoon">웹툰</li>
-                    <li>커뮤니티</li>
+                <ul class="aaaa">
+                    <li id="webtoon" class="font1">웹툰</li>
+                    <li class="font1">커뮤니티</li>
                 </ul>
             </nav>
             <div>
-                <a href="">
+                <a href="" class="font1">
                     <span>로그인</span>
                 </a>
-                <!-- <a href=""><span>로그아웃</span></a> -->
-                <a href=""><span>회원가입</span></a>
+                <!-- <a href="" class="font1"><span>로그아웃</span></a> -->
+                <a href="" class="font1"><span>회원가입</span></a>
             </div>
         </header>
-        <div id="container">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-            <div>7</div>
-            <div>8</div>
-            <div>9</div>
-            <div>10</div>
-        </div>
+        <div id="container"></div>
         <footer>
             <span>로고이미지 : </span>
             <a
@@ -55,14 +42,10 @@
 
         <script>
             window.onload = function () {
-                const container = document.querySelector("#container");
-                document
-                    .querySelector("#webtoon")
-                    .addEventListener("click", () => {
-                        fetch("/webtoon")
-                            .then((response) => response.text())
-                            .then((data) => (container.innerHTML = data));
-                    });
+                const container = $("#container");
+                $("#webtoon").on("click", () => {
+                    container.load("/webtoon");
+                });
                 // // const $ul = document.querySelector("ul");
                 // // let $li = document.querySelector("li:last-child");
                 // // let count = $ul.children.length;
