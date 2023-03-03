@@ -37,6 +37,26 @@ app.get("/webtoon", (req, res) => {
     res.render("webtoon");
 });
 
+app.get("/webtoon/:id/:page", async (req, res) => {
+    const { id, page } = req.params;
+    if (["naver", "kakao", "kakaoPage"].includes(id)) {
+        console.log(id);
+        axios
+            .get(
+                `https://korea-webtoon-api.herokuapp.com/?page=${page}&perPage=20&service=${id}`
+            )
+            .then((response) => res.send(response.data.webtoons))
+            .catch((err) => console.error(err));
+    } else {
+        axios
+            .get(
+                `https://korea-webtoon-api.herokuapp.com/?page=${page}&perPage=20&updateDay=${id}`
+            )
+            .then((response) => res.send(response.data.webtoons))
+            .catch((err) => console.error(err));
+    }
+});
+
 app.listen(3000, () => {
     console.log("Listening on PORT 3000!");
 });

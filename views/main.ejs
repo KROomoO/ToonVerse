@@ -17,9 +17,9 @@
                 <h1>ToonVerse</h1>
             </a>
             <nav>
-                <ul class="aaaa">
+                <ul class="GNB">
                     <li id="webtoon" class="font1">웹툰</li>
-                    <li class="font1">커뮤니티</li>
+                    <li id="board" class="font1">커뮤니티</li>
                 </ul>
             </nav>
             <div>
@@ -30,7 +30,7 @@
                 <a href="" class="font1"><span>회원가입</span></a>
             </div>
         </header>
-        <div id="container"></div>
+        <main id="container"></main>
         <footer>
             <span>로고이미지 : </span>
             <a
@@ -41,10 +41,12 @@
         </footer>
 
         <script>
-            window.onload = function () {
+            $(document).ready(() => {
                 const container = $("#container");
-                $("#webtoon").on("click", () => {
-                    container.load("/webtoon");
+                container.load("/webtoon");
+
+                $(".GNB").on("click", function (item) {
+                    container.load(`/${$(item.target).attr("id")}`);
                 });
                 // // const $ul = document.querySelector("ul");
                 // // let $li = document.querySelector("li:last-child");
@@ -94,7 +96,7 @@
                 //     }
                 // );
                 // io.observe(focusElement);
-            };
+            });
         </script>
     </body>
 </html>

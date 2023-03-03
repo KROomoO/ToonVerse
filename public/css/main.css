@@ -137,15 +137,14 @@ table {
 * {
     font-family: "Tilt Neon", "IBM Plex Sans KR", sans-serif !important;
 }
-
+/* 
 body {
     background-color: black;
-}
+} */
 
 header {
     position: fixed;
     top: 0;
-    left: 0;
     height: 60px;
     width: 100%;
     background-color: #3aaaff;
@@ -169,7 +168,7 @@ header > a {
     width: 300px;
 }
 
-header > nav > ul {
+.GNB {
     position: absolute;
     top: 0px;
     left: 400px;
@@ -180,12 +179,12 @@ header > nav > ul {
     justify-content: space-evenly;
 }
 
-header > nav > ul > li {
+.GNB > li {
     text-align: center;
     padding: 10px;
 }
 
-header > nav > ul > li:hover {
+.GNB > li:hover {
     color: #495579;
 }
 
@@ -230,12 +229,12 @@ h1 {
     border-radius: 5px 5px 0px 0px;
     height: calc(100% - 60px);
     width: 100%;
-    background-color: orange;
 }
 
 .bar {
     width: 100%;
     height: 40px;
+    background-color: orange;
 }
 
 .bar > ul {
@@ -254,4 +253,78 @@ h1 {
 
 .disNone {
     display: none !important;
+}
+
+.webtoonContainer {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.webtoonItem {
+    position: relative;
+    width: 180px;
+    height: 210px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.adult {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+.cover {
+    width: 180px;
+    height: 180px;
+    border-radius: 5px;
+}
+
+.new {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    background-color: green;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 30px;
+    height: 15px;
+    text-align: center;
+}
+
+.rest {
+    position: absolute;
+    bottom: 30px;
+    left: 0px;
+    height: 20px;
+    width: 180px;
+    background-color: #967e76;
+    text-align: center;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.wrap_title {
+    width: 180px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.up {
+    width: 30px;
+    height: 20px;
+    background-color: #e9a178;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.title {
+    margin-left: 5px;
 }
