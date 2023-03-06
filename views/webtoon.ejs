@@ -25,25 +25,21 @@
             });
 
             $.each(week.children(), (index, item) => {
-                $(item).on("click", () => {
-                    page = 0;
-                    $.ajax({
-                        url: `/webtoon/${$(item).attr("id")}/${page}`,
-                        type: "get",
-                        dataType: "json",
-                        success: function (data) {
-                            // $(".webtoonContainer").html(
-                            // );
-                        },
-                    });
-                    // $(".webtoonContainer").load(
-                    //     `/webtoon/${$(item).attr("id")}/${page}`,
-                    //     (data) => {
-                    //         console.log(data.webtoons);
-                    //     }
-                    // );
-                });
+                $(item).on("click", aaa(item));
             });
+
+            function aaa(item) {
+                page = 0;
+                $.ajax({
+                    url: `/webtoon/${$(item).attr("id")}/${page}`,
+                    type: "get",
+                    dataType: "json",
+                    success: function (data) {
+                        const webtoon = data.map(parsingWebtoon);
+                        $(".webtoonContainer").html([...webtoon]);
+                    },
+                });
+            }
 
             $.each(platForm.children(), (index, item) => {
                 $(item).on("click", () => {
@@ -53,25 +49,38 @@
                         type: "get",
                         dataType: "json",
                         success: function (data) {
-                            const asdf = data.map(aaa);
-                            $(".webtoonContainer").html([...asdf]);
+                            const webtoon = data.map(parsingWebtoon);
+                            $(".webtoonContainer").html([...webtoon]);
                         },
                     });
                 });
             });
 
-            function aaa(item) {
+            function parsingWebtoon(item) {
                 let webtoonStr = "";
                 webtoonStr += "<div class='webtoonItem'>";
                 webtoonStr += "<div>";
-                webtoonStr += "<img src='image/18.png' class='adult' />";
+                if (item.additional.adult) {
+                    webtoonStr += "<img src='image/18.png' class='adult' />";
+                }
                 webtoonStr += `<img src=${item.img} class='cover' />`;
-                webtoonStr += "<strong class='new'>new</strong>";
-                webtoonStr += "<strong class='rest'>휴재</strong>";
+                if (item.additional.new) {
+                    webtoonStr += "<strong class='new'>new</strong>";
+                }
+                if (item.additional.rest) {
+                    webtoonStr += "<strong class='rest'>휴재</strong>";
+                }
                 webtoonStr += "</div>";
                 webtoonStr += "<div class='wrap_title'>";
-                webtoonStr += "<strong class='up'>UP</strong>";
-                webtoonStr += `<strong class='title'>${item.title}</strong>`;
+                if (item.additional.up) {
+                    webtoonStr += "<strong class='up'>UP</strong>";
+                }
+                if (item.title.length > 10) {
+                    let subTitle = item.title.slice(0, 9) + "...";
+                    webtoonStr += `<strong class='title'>${subTitle}</strong>`;
+                } else {
+                    webtoonStr += `<strong class='title'>${item.title}</strong>`;
+                }
                 webtoonStr += "</div>";
                 webtoonStr += "</div>";
                 return webtoonStr;
@@ -79,42 +88,6 @@
         });
     </script>
     <body>
-        <div class="bar">
-            <ul class="LNB">
-                <li class="font1" id="week">요일</li>
-                <li class="font1" id="platForm">플랫폼</li>
-            </ul>
-        </div>
-        <div class="bar">
-            <ul class="week">
-                <li class="font1" id="mon">월</li>
-                <li class="font1" id="tue">화</li>
-                <li class="font1" id="wed">수</li>
-                <li class="font1" id="thu">목</li>
-                <li class="font1" id="fri">금</li>
-                <li class="font1" id="sat">토</li>
-                <li class="font1" id="sun">일</li>
-                <li class="font1" id="finished">완결</li>
-                <li class="font1" id="naverDaily">네이버 Daily+</li>
-            </ul>
-            <ul class="platForm disNone">
-                <li class="font1" id="naver">네이버</li>
-                <li class="font1" id="kakao">카카오</li>
-            </ul>
-        </div>
-        <div class="webtoonContainer">
-            <div class="webtoonItem">
-                <div>
-                    <img src="image/18.png" class="adult" alt="" />
-                    <img src="image/1.png" class="cover" alt="" />
-                    <strong class="new">new</strong>
-                    <strong class="rest">휴재</strong>
-                </div>
-                <div class="wrap_title">
-                    <strong class="up">UP</strong>
-                    <strong class="title">ToonVerseaaaaa</strong>
-                </div>
-            </div>
-        </div>
+        <div class="webtoonContainer"></div>
     </body>
 </html>
