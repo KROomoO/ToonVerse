@@ -8,27 +8,6 @@ app.set("view engine", "ejs");
 
 app.use(express.static(path.join(__dirname, "public")));
 
-// app.get("/", async (req, res) => {
-//     for (let i = 0; i < 310; i++) {
-//         await axios
-//             .get(
-//                 `https://korea-webtoon-api.herokuapp.com/?page=${i}&perPage=20`
-//             )
-//             .then((result) => {
-//                 let copyArr = [];
-//                 for (let webtoon of result.data.webtoons) {
-//                     if (webtoon.additional.up === true) {
-//                         copyArr.push(webtoon.title);
-//                     }
-//                 }
-//                 console.log(copyArr);
-//             })
-//             .catch((err) => {
-//                 console.error(err);
-//             });
-//     }
-//     res.render("main");
-// });
 app.get("/", (req, res) => {
     res.render("main");
 });
@@ -37,10 +16,16 @@ app.get("/webtoon", (req, res) => {
     res.render("webtoon");
 });
 
-app.get("/webtoon/:id/:page", async (req, res) => {
+app.get("/webtoon/search/:keyword", (req, res) => {
+    const { keyword } = req.params;
+    axios.get(
+        `https://korea-webtoon-api.herokuapp.com/search?keyword=${keyword}`
+    );
+});
+
+app.get("/webtoon/:id/:page", (req, res) => {
     const { id, page } = req.params;
-    if (["naver", "kakao", "kakaoPage"].includes(id)) {
-        console.log(id);
+    if (["naver", "kakao"].includes(id)) {
         axios
             .get(
                 `https://korea-webtoon-api.herokuapp.com/?page=${page}&perPage=20&service=${id}`

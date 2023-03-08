@@ -248,6 +248,30 @@ h1 {
     top: 100px;
 }
 
+.searchForm {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+}
+
+.searchForm > input {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 130px;
+    text-align: center;
+    height: 25px;
+}
+
+.searchForm > button {
+    border-radius: 5px;
+    height: 30px;
+}
+
+.chooseColor {
+    color: #820000;
+}
+
 .bar > ul {
     height: 100%;
     display: flex;
@@ -278,15 +302,15 @@ h1 {
 
 .webtoonItem {
     position: relative;
-    width: 180px;
-    height: 210px;
+    width: 110px;
+    height: 160px;
     margin: 10px;
     border: 3px solid black;
     border-radius: 5px;
 }
 
 .webtoonItem > div:first-child {
-    height: 180px;
+    height: 130px;
     width: 100%;
     background-color: black;
 }
@@ -300,8 +324,8 @@ h1 {
 }
 
 .cover {
-    width: 180px;
-    height: 180px;
+    width: 110px;
+    height: 130px;
     border-radius: 5px;
 }
 
@@ -310,9 +334,9 @@ h1 {
     top: 3px;
     right: 3px;
     background-color: green;
-    font-size: 14px;
+    font-size: 12px;
     border-radius: 5px;
-    width: 30px;
+    width: 23px;
     height: 15px;
     text-align: center;
 }
@@ -322,10 +346,9 @@ h1 {
     bottom: 30px;
     left: 0px;
     height: 20px;
-    width: 180px;
+    width: 100%;
     background-color: #967e76;
     text-align: center;
-    border-radius: 0px 0px 5px 5px;
 }
 
 .wrap_title {
@@ -337,10 +360,11 @@ h1 {
 }
 
 .up {
-    width: 30px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
     background-color: #e9a178;
-    margin-left: 10px;
+    margin-left: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -348,5 +372,7 @@ h1 {
 }
 
 .title {
+    font-size: 10px;
     margin-left: 5px;
+    font-weight: bolder;
 }
