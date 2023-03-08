@@ -30,33 +30,6 @@
                 <!-- <a href="" class="font1"><span>로그아웃</span></a> -->
                 <a href="" class="font1"><span>회원가입</span></a>
             </div>
-            <div class="bar LNB1">
-                <ul class="LNB">
-                    <li class="font1 chooseColor" id="week">요일</li>
-                    <li class="font1" id="platForm">플랫폼</li>
-                </ul>
-                <form action="/search" class="searchForm" method="get">
-                    <input type="text" placeholder="검색어를 입력해주세요" />
-                    <button type="submit">검색</button>
-                </form>
-            </div>
-            <div class="bar LNB2">
-                <ul class="week">
-                    <li class="font1" id="mon">월</li>
-                    <li class="font1" id="tue">화</li>
-                    <li class="font1" id="wed">수</li>
-                    <li class="font1" id="thu">목</li>
-                    <li class="font1" id="fri">금</li>
-                    <li class="font1" id="sat">토</li>
-                    <li class="font1" id="sun">일</li>
-                    <li class="font1" id="finished">완결</li>
-                    <li class="font1" id="naverDaily">네이버 Daily+</li>
-                </ul>
-                <ul class="platForm disNone">
-                    <li class="font1" id="naver">네이버</li>
-                    <li class="font1" id="kakao">카카오</li>
-                </ul>
-            </div>
         </header>
         <main id="container"></main>
         <footer>
@@ -71,7 +44,7 @@
         <script>
             $(document).ready(() => {
                 const container = $("#container");
-                // container.load("/webtoon");
+                container.load("/webtoon");
 
                 $(".GNB").on("click", function (item) {
                     container.load(`/${$(item.target).attr("id")}`);

@@ -43,6 +43,10 @@ $(document).ready(() => {
         chooseCategory = $(this).attr("id");
         webtoonContainer.html(getWebtoon(chooseCategory));
     });
+
+    $(".moveTopBtn").on("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 });
 
 function getWebtoon(item, page = 0) {
