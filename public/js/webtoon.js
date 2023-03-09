@@ -47,7 +47,26 @@ $(document).ready(() => {
     $(".moveTopBtn").on("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
+
+    $("#searchBtn").on("click", () => {
+        let keyword = $("#keyword").val();
+        chooseCategory = keyword;
+        webtoonContainer.html(getSearchWebtoon(keyword));
+    });
 });
+
+function getSearchWebtoon(keyword) {
+    $.ajax({
+        url: `/webtoon/search/${keyword}`,
+        type: "get",
+        async: false,
+        dataType: "json",
+        success: function (data) {
+            resultData = data.map(parsingWebtoon);
+        },
+    });
+    return resultData;
+}
 
 function getWebtoon(item, page = 0) {
     $(".week").children().removeClass("chooseColor");
@@ -61,6 +80,9 @@ function getWebtoon(item, page = 0) {
         dataType: "json",
         success: function (data) {
             resultData = data.map(parsingWebtoon);
+            // $(".webtoonItem").on("click", function () {
+            //     console.log($(this).children());
+            // });
         },
     });
     return resultData;
@@ -94,9 +116,9 @@ function parsingWebtoon(item) {
 
     if (item.title.length > 10) {
         let subTitle = item.title.slice(0, 9) + "...";
-        webtoonStr += `<strong class='title'>${subTitle}</strong>`;
+        webtoonStr += `<strong class='title' title='${item.title}'>${subTitle}</strong>`;
     } else {
-        webtoonStr += `<strong class='title'>${item.title}</strong>`;
+        webtoonStr += `<strong class='title' title='${item.title}'>${item.title}</strong>`;
     }
 
     webtoonStr += "</div>";

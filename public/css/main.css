@@ -243,13 +243,13 @@ h1 {
     top: 40px;
 }
 
-.searchForm {
+.wrapper_search {
     position: absolute;
     right: 10px;
     top: 10px;
 }
 
-.searchForm > input {
+.wrapper_search > input {
     border: 2px solid black;
     border-radius: 5px;
     width: 130px;
@@ -257,7 +257,7 @@ h1 {
     height: 25px;
 }
 
-.searchForm > button {
+.wrapper_search > button {
     border-radius: 5px;
     height: 30px;
 }
@@ -360,7 +360,7 @@ h1 {
 }
 
 .wrap_title {
-    width: 180px;
+    width: 110px;
     height: 30px;
     display: flex;
     align-items: center;

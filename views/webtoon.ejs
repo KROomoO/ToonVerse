@@ -8,10 +8,22 @@
                 <li class="font1 chooseColor" id="week">요일</li>
                 <li class="font1" id="platForm">플랫폼</li>
             </ul>
-            <form action="/search" class="searchForm" method="get">
-                <input type="text" placeholder="검색어를 입력해주세요" />
-                <button type="submit">검색</button>
-            </form>
+            <div class="wrapper_search">
+                <input
+                    type="text"
+                    id="keyword"
+                    placeholder="검색어를 입력해주세요"
+                />
+                <button id="searchBtn">검색</button>
+            </div>
+            <!-- <form action="/webtoon/search" class="searchForm" method="get">
+                <input
+                    type="text"
+                    name="keyword"
+                    placeholder="검색어를 입력해주세요"
+                />
+                <button type="submit" id="searchBtn">검색</button>
+            </form> -->
         </div>
         <div class="bar LNB2">
             <ul class="week">

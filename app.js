@@ -18,9 +18,12 @@ app.get("/webtoon", (req, res) => {
 
 app.get("/webtoon/search/:keyword", (req, res) => {
     const { keyword } = req.params;
-    axios.get(
-        `https://korea-webtoon-api.herokuapp.com/search?keyword=${keyword}`
-    );
+    axios
+        .get(
+            `https://korea-webtoon-api.herokuapp.com/search?keyword=${keyword}`
+        )
+        .then((response) => res.send(response.data.webtoons))
+        .catch((err) => console.error(err));
 });
 
 app.get("/webtoon/:id/:page", (req, res) => {
@@ -30,7 +33,7 @@ app.get("/webtoon/:id/:page", (req, res) => {
             .get(
                 `https://korea-webtoon-api.herokuapp.com/?page=${page}&perPage=20&service=${id}`
             )
-            .then((response) => res.send(response.data.webtoons))
+            .then((response) => console.log(response.data.webtoons))
             .catch((err) => console.error(err));
     } else {
         axios
