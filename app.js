@@ -8,11 +8,17 @@ app.set("view engine", "ejs");
 
 app.use(express.static(path.join(__dirname, "public")));
 
+app.engine("html", require("ejs").renderFile);
+
 app.get("/", (req, res) => {
+    res.render(path.resolve(__dirname, "./index.html"));
+});
+
+app.get("/main", (req, res) => {
     res.render("main");
 });
 
-app.get("/webtoon", (req, res) => {
+app.get("/category/webtoon", (req, res) => {
     res.render("webtoon");
 });
 
@@ -33,7 +39,7 @@ app.get("/webtoon/:id/:page", (req, res) => {
             .get(
                 `https://korea-webtoon-api.herokuapp.com/?page=${page}&perPage=20&service=${id}`
             )
-            .then((response) => console.log(response.data.webtoons))
+            .then((response) => res.send(response.data.webtoons))
             .catch((err) => console.error(err));
     } else {
         axios

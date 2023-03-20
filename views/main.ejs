@@ -4,12 +4,8 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ToonVerse</title>
-
+        <script type="text/javascript" src="js/commonText.js"></script>
         <link rel="stylesheet" href="css/main.css" />
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <script src="js/commonText.js"></script>
     </head>
     <body>
         <header>
@@ -40,11 +36,10 @@
             >
             출처 Freepik
         </footer>
-
         <script>
             $(document).ready(() => {
                 const container = $("#container");
-                container.load("/webtoon");
+                container.load("/category/webtoon");
 
                 $(".GNB").on("click", function (item) {
                     container.load(`/${$(item.target).attr("id")}`);

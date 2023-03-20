@@ -51,7 +51,19 @@ $(document).ready(() => {
     $("#searchBtn").on("click", () => {
         let keyword = $("#keyword").val();
         chooseCategory = keyword;
-        webtoonContainer.html(getSearchWebtoon(keyword));
+        let resultData = getSearchWebtoon(keyword);
+        if (resultData.length === 0) {
+            webtoonContainer.html(
+                `
+                <div class="emptyResult">
+                <img src="image/emptyResult.jpg">
+                <strong>검색된 결과가 없습니다.</strong>
+                </div>
+                `
+            );
+        } else {
+            webtoonContainer.html(resultData);
+        }
     });
 });
 
