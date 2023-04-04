@@ -9,3 +9,7 @@
 
 ### 외부 API
 - [Korea Webtoon API](https://github.com/HyeokjaeLee/korea-webtoon-api)
+
+
+### PREVEIW
+![preview](https://user-images.githubusercontent.com/93576045/229733483-d91d5a93-56cd-4274-9bbf-48ca2ff223ca.png)
