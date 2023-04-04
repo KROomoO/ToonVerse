@@ -56,7 +56,7 @@ $(document).ready(() => {
             webtoonContainer.html(
                 `
                 <div class="emptyResult">
-                <img src="image/emptyResult.jpg">
+                <img src="/image/emptyResult.jpg">
                 <strong>검색된 결과가 없습니다.</strong>
                 </div>
                 `
@@ -107,7 +107,7 @@ function parsingWebtoon(item) {
     webtoonStr += "<div>";
 
     if (item.additional.adult) {
-        webtoonStr += "<img src='image/18.png' class='adult' />";
+        webtoonStr += "<img src='/image/18.png' class='adult' />";
     }
 
     webtoonStr += `<img src=${item.img} class='cover' />`;
@@ -126,8 +126,8 @@ function parsingWebtoon(item) {
         webtoonStr += "<strong class='up'>UP</strong>";
     }
 
-    if (item.title.length > 10) {
-        let subTitle = item.title.slice(0, 9) + "...";
+    if (item.title.length > 8) {
+        let subTitle = item.title.slice(0, 7) + "...";
         webtoonStr += `<strong class='title' title='${item.title}'>${subTitle}</strong>`;
     } else {
         webtoonStr += `<strong class='title' title='${item.title}'>${item.title}</strong>`;

@@ -4,28 +4,26 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script type="text/javascript" src="js/commonText.js"></script>
-        <link rel="stylesheet" href="css/main.css" />
     </head>
     <body>
         <header>
             <a href="/">
-                <img src="image/logo.jpg" alt="mainLogo" class="logo" />
+                <img src="/image/logo.jpg" alt="mainLogo" class="logo" />
                 <h1>ToonVerse</h1>
             </a>
             <nav>
                 <ul class="GNB">
-                    <li id="webtoon" class="font1">웹툰</li>
-                    <li id="board" class="font1">커뮤니티</li>
+                    <!-- <li id="webtoon" class="font1">웹툰</li> -->
+                    <!-- <li id="board" class="font1">커뮤니티</li> -->
                 </ul>
             </nav>
-            <div class="loginContainer">
+            <!-- <div class="loginContainer">
                 <a href="" class="font1">
                     <span id="login">로그인</span>
                 </a>
-                <!-- <a href="" class="font1"><span>로그아웃</span></a> -->
+                <a href="" class="font1"><span>로그아웃</span></a>
                 <a href="" class="font1"><span>회원가입</span></a>
-            </div>
+            </div> -->
         </header>
         <main id="container"></main>
         <footer>
@@ -39,7 +37,7 @@
         <script>
             $(document).ready(() => {
                 const container = $("#container");
-                container.load("/category/webtoon");
+                container.load("/webtoon");
 
                 $(".GNB").on("click", function (item) {
                     container.load(`/${$(item.target).attr("id")}`);

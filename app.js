@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const axios = require("axios");
 
+const port = process.env.PORT || 3000;
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -11,24 +13,28 @@ app.use(express.static(path.join(__dirname, "public")));
 app.engine("html", require("ejs").renderFile);
 
 app.get("/", (req, res) => {
-    res.render(path.resolve(__dirname, "./index.html"));
+    res.render(path.resolve(__dirname, "./views/index.html"));
 });
 
 app.get("/main", (req, res) => {
     res.render("main");
 });
 
-app.get("/category/webtoon", (req, res) => {
+app.get("/webtoon", (req, res) => {
     res.render("webtoon");
 });
 
 app.get("/webtoon/search/:keyword", (req, res) => {
+    console.log("aa");
     const { keyword } = req.params;
     axios
         .get(
             `https://korea-webtoon-api.herokuapp.com/search?keyword=${keyword}`
         )
-        .then((response) => res.send(response.data.webtoons))
+        .then((response) => {
+            console.log(response.data.webtoons);
+            res.send(response.data.webtoons);
+        })
         .catch((err) => console.error(err));
 });
 
@@ -51,6 +57,6 @@ app.get("/webtoon/:id/:page", (req, res) => {
     }
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("Listening on PORT 3000!");
 });
