@@ -10,6 +10,7 @@
 ## 🔗 URL
 - [ToonVerse](http://toonverse-env-1.eba-hpuq4uvq.ap-northeast-2.elasticbeanstalk.com/)
 
+http://toonverse-env-1.eba-hpuq4uvq.ap-northeast-2.elasticbeanstalk.com/
 ## 📌 Skill
 - express.js
 - axios
