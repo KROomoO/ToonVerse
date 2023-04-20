@@ -18,7 +18,7 @@
 > - MutationObserver
 > - IntersectionObserver
 
-- AWS : Elastic Beanstalk
+- Google Cloud : App Engine
 
 ### 외부 API
 - [Korea Webtoon API](https://github.com/HyeokjaeLee/korea-webtoon-api)
