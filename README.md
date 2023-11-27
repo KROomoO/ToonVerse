@@ -8,7 +8,7 @@
 - 카카오, 네이버
 
 ## 🔗 URL
-- [ToonVerse](https://toonverse-384308.du.r.appspot.com/)
+- [ToonVerse](http://ec2-43-201-68-78.ap-northeast-2.compute.amazonaws.com:3000)
 
 ## 📌 Skill
 - express.js
@@ -18,7 +18,7 @@
 > - MutationObserver
 > - IntersectionObserver
 
-- Google Cloud : App Engine
+- AWS : EC2
 
 ### 외부 API
 - [Korea Webtoon API](https://github.com/HyeokjaeLee/korea-webtoon-api)
