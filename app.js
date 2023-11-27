@@ -25,14 +25,12 @@ app.get("/webtoon", (req, res) => {
 });
 
 app.get("/webtoon/search/:keyword", (req, res) => {
-    console.log("aa");
     const { keyword } = req.params;
     axios
         .get(
             `https://korea-webtoon-api.herokuapp.com/search?keyword=${keyword}`
         )
         .then((response) => {
-            console.log(response.data.webtoons);
             res.send(response.data.webtoons);
         })
         .catch((err) => console.error(err));
