@@ -126,8 +126,8 @@ function parsingWebtoon(item) {
         webtoonStr += "<strong class='up'>UP</strong>";
     }
 
-    if (item.title.length > 8) {
-        let subTitle = item.title.slice(0, 7) + "...";
+    if (item.title.length > 11) {
+        let subTitle = item.title.slice(0, 10) + "...";
         webtoonStr += `<strong class='title' title='${item.title}'>${subTitle}</strong>`;
     } else {
         webtoonStr += `<strong class='title' title='${item.title}'>${item.title}</strong>`;

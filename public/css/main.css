@@ -340,8 +340,8 @@ h1 {
 
 .webtoonItem {
     position: relative;
-    width: 100px;
-    height: 160px;
+    width: 200px;
+    height: 260px;
     margin: 10px;
     border: 3px solid black;
     border-radius: 5px;
@@ -349,22 +349,22 @@ h1 {
 }
 
 .webtoonItem > div:first-child {
-    height: 130px;
+    height: 230px;
     width: 100%;
     background-color: black;
 }
 
 .adult {
     position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 20px;
-    height: 20px;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
 }
 
 .cover {
-    width: 100px;
-    height: 130px;
+    width: 100%;
+    height: 230px;
     border-radius: 5px;
 }
 
@@ -391,7 +391,7 @@ h1 {
 }
 
 .wrap_title {
-    width: 100px;
+    width: 100%;
     height: 30px;
     display: flex;
     align-items: center;
@@ -399,11 +399,12 @@ h1 {
 }
 
 .up {
-    width: 18px;
-    height: 18px;
-    font-size: 10px;
+    width: 30px;
+    height: 26px;
+    font-size: 18px;
+    font-weight: bolder;
     background-color: #e9a178;
-    margin-left: 8px;
+    margin-left: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -411,7 +412,7 @@ h1 {
 }
 
 .title {
-    font-size: 10px;
+    font-size: 18px;
     margin-left: 5px;
     font-weight: bolder;
 }
