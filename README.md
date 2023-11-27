@@ -8,7 +8,7 @@
 - 카카오, 네이버
 
 ## 🔗 URL
-- [ToonVerse](http://ec2-43-201-68-78.ap-northeast-2.compute.amazonaws.com:3000)
+- [ToonVerse]:http://ec2-43-201-68-78.ap-northeast-2.compute.amazonaws.com:3000
 
 ## 📌 Skill
 - express.js
