@@ -85,6 +85,7 @@ function getWebtoon(item, page = 0) {
     $(".platForm").children().removeClass("chooseColor");
     $(`#${item}`).addClass("chooseColor");
     let resultData = "";
+
     $.ajax({
         url: `/webtoon/${item}/${page}`,
         type: "get",
@@ -92,9 +93,10 @@ function getWebtoon(item, page = 0) {
         dataType: "json",
         success: function (data) {
             resultData = data.map(parsingWebtoon);
-            // $(".webtoonItem").on("click", function () {
-            //     console.log($(this).children());
-            // });
+            $(".webtoonItem").on("click", function () {
+                const url = $(this).data("url");
+                window.location.href = url;
+            });
         },
     });
     return resultData;
@@ -103,26 +105,19 @@ function getWebtoon(item, page = 0) {
 function parsingWebtoon(item) {
     let webtoonStr = "";
 
-    webtoonStr += "<div class='webtoonItem'>";
+    webtoonStr += `<div class='webtoonItem' data-url='${item.url}'>`;
     webtoonStr += "<div>";
 
-    if (item.additional.adult) {
+    if (item.ageGrade >= 19) {
         webtoonStr += "<img src='/image/18.png' class='adult' />";
     }
 
-    webtoonStr += `<img src=${item.img} class='cover' />`;
-    if (item.additional.new) {
-        webtoonStr += "<strong class='new'>new</strong>";
-    }
-
-    if (item.additional.rest) {
-        webtoonStr += "<strong class='rest'>휴재</strong>";
-    }
+    webtoonStr += `<img src=${item.thumbnail[0]} class='cover' />`;
 
     webtoonStr += "</div>";
     webtoonStr += "<div class='wrap_title'>";
 
-    if (item.additional.up) {
+    if (item.isUpdated) {
         webtoonStr += "<strong class='up'>UP</strong>";
     }
 

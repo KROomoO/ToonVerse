@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const axios = require("axios");
+const Axios = require("axios");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -24,12 +24,12 @@ app.get("/webtoon", (req, res) => {
     res.render("webtoon");
 });
 
+const url = "https://korea-webtoon-api-cc7dda2f0d77.herokuapp.com/webtoons";
+
 app.get("/webtoon/search/:keyword", (req, res) => {
     const { keyword } = req.params;
-    axios
-        .get(
-            `https://korea-webtoon-api.herokuapp.com/search?keyword=${keyword}`
-        )
+
+    Axios.get(`${url}?keyword=${keyword}`)
         .then((response) => {
             res.send(response.data.webtoons);
         })
@@ -38,18 +38,13 @@ app.get("/webtoon/search/:keyword", (req, res) => {
 
 app.get("/webtoon/:id/:page", (req, res) => {
     const { id, page } = req.params;
-    if (["naver", "kakao"].includes(id)) {
-        axios
-            .get(
-                `https://korea-webtoon-api.herokuapp.com/?page=${page}&perPage=20&service=${id}`
-            )
+    console.log("platform", id, page);
+    if (["NAVER", "KAKAO", "KAKAO_PAGE"].includes(id)) {
+        Axios.get(`${url}?page=${page}&perPage=20&provider=${id}`)
             .then((response) => res.send(response.data.webtoons))
             .catch((err) => console.error(err));
     } else {
-        axios
-            .get(
-                `https://korea-webtoon-api.herokuapp.com/?page=${page}&perPage=20&updateDay=${id}`
-            )
+        Axios.get(`${url}?page=${page}&perPage=20&updateDay=${id}`)
             .then((response) => res.send(response.data.webtoons))
             .catch((err) => console.error(err));
     }
