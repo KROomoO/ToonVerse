@@ -20,9 +20,12 @@
 
 - AWS : EC2
 
+## 📺 시연 영상
+- 클릭 시 이동합니다!
+
+[![ToonVerse](https://github.com/user-attachments/assets/7263178b-95c4-4cc8-9b3f-fa7a758aec11)](https://youtu.be/SkaPTqnXuUY)
+
+
 ### 외부 API
 - [Korea Webtoon API](https://github.com/HyeokjaeLee/korea-webtoon-api)
 
-
-### PREVIEW
-![preview](https://user-images.githubusercontent.com/93576045/229733483-d91d5a93-56cd-4274-9bbf-48ca2ff223ca.png)
